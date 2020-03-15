@@ -200,13 +200,6 @@ var QuillComponent = createClass({
 
 	componentDidMount: function() {
 		
-		var qlContainer = node[0];
-                var parent = qlContainer.parentNode;
-                var wrapper = document.createElement('div');
-                wrapper.setAttribute("id", "scrolling-container");
-                parent.appendChild(wrapper);
-                wrapper.appendChild(qlContainer);
-		
 		this.editor = this.createEditor(
 			this.getEditingArea(),
 			this.getEditorConfig()
