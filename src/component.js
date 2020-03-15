@@ -211,6 +211,18 @@ var QuillComponent = createClass({
 			this.getEditingArea(),
 			this.getEditorConfig()
 		);
+		
+		//Add scrolling container ID
+		var node = document.getElementsByClassName('ql-container');
+		if (this.props.id == "quill-edit" && node && node.length > 0){
+			var qlContainer = node[0];
+			var parent = qlContainer.parentNode;
+			var wrapper = document.createElement('div');
+			wrapper.setAttribute("id", "scrolling-container");
+			parent.appendChild(wrapper);
+			wrapper.appendChild(qlContainer);
+		}
+		
 		// Restore editor from Quill's native formats in regeneration scenario
 		if (this.quillDelta) {
 			this.editor.setContents(this.quillDelta);
